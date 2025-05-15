@@ -3,13 +3,28 @@
 import { useState, useEffect } from 'react';
 
 interface WeatherData {
-  name: string;
-  main: {
-    temp: number;
+  request: {
+    type: string;
+    query: string;
+    language: string;
+    unit: string;
+  };
+  location: {
+    name: string;
+    country: string;
+    region: string;
+    lat: string;
+    lon: string;
+    timezone_id: string;
   };
   weather: {
     description: string;
   }[];
+  current: {
+    temperature: number;
+    weather_descriptions: string[];
+    wind_speed: number;
+  };
 }
 
 export default function WeatherPage() {
@@ -22,16 +37,16 @@ export default function WeatherPage() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          const API_KEY = 'YOUR_WEATHER_API_KEY'; // Replace with your actual API key
-          const API_ENDPOINT = 'YOUR_WEATHER_API_ENDPOINT'; // Replace with your actual API endpoint
-
+          const API_ENDPOINT = `https://api.weatherstack.com/current?access_key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&query=${latitude},${longitude}`; // Replace with your actual API endpoint
+          console.log(latitude, longitude,'test')
           try {
-            const response = await fetch(`${API_ENDPOINT}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`); // Example with metric units
+            const response = await fetch(API_ENDPOINT); // Example with metric units
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data: WeatherData = await response.json();
             setWeather(data);
+
           } catch (err) {
             setError("Failed to fetch weather data.");
             console.error("Weather API error:", err);
@@ -65,10 +80,11 @@ export default function WeatherPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Current Weather in {weather.name}</h1>
+      <h1 className="text-3xl font-bold mb-4">Current Weather in {weather.location.name}</h1>
       <div className="bg-card p-6 rounded-lg shadow-md">
-        <p className="text-xl">Temperature: {weather.main.temp}°C</p>
-        <p className="text-lg">Description: {weather.weather[0].description}</p>
+        <p className="text-xl">Temperature: {weather.current.temperature}°C</p>
+        <p className="text-lg">Description: {weather.current.weather_descriptions[0]}</p>
+        <p className="text-lg">Wind Speed: {weather.current.wind_speed} km/h</p>
       </div>
     </div>
   );

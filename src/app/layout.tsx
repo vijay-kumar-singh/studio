@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Providers } from '@/components/providers';
 import { ThemeProvider } from 'next-themes';
-import CookieConsent from '@/components/cookie-consent'
+import CookieConsentClient from '@/components/cookie-consent-client';
 
 
 const openSans = Open_Sans({
@@ -36,10 +36,11 @@ export default function RootLayout({
               </main>
               <Footer />
             </div>
-            <CookieConsent />
+            <CookieConsentClient />
             <Toaster />
           </ThemeProvider>
         </Providers>
       </body>
     </html>
-  )};
+  )
+};
