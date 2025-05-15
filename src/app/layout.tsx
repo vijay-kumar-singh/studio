@@ -5,7 +5,8 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Providers } from '@/components/providers';
-import CookieConsent from '@/components/cookie-consent';
+import { ThemeProvider } from 'next-themes';
+import CookieConsent from '@/components/cookie-consent'
 
 
 const openSans = Open_Sans({
@@ -27,17 +28,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${openSans.variable} font-sans antialiased`}>
         <Providers>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-8">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          <CookieConsent />
-          <Toaster />
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow container mx-auto px-4 py-8">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <CookieConsent />
+            <Toaster />
+          </ThemeProvider>
         </Providers>
       </body>
     </html>
   );
-}

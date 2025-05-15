@@ -8,11 +8,12 @@ import { Menu, BriefcaseBusiness } from "lucide-react";
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile"; // Assuming useIsMobile hook exists
-
+import { ModeToggle } from "@/components/mode-toggle";
 export function Header() {
   const isMobile = useIsMobile();
 
@@ -40,23 +41,33 @@ export function Header() {
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-2 px-4">
-                  {siteConfig.mainNav.map((item) => (
-                    <SheetClose asChild key={item.href}>
-                      <Link
-                        href={item.href}
+                  {siteConfig.mainNav.map((item) =>
+                    item.href ? (
+                      <SheetClose asChild key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+                        >
+                          {item.title}
+                        </Link>
+                      </SheetClose>
+                    ) : (
+                      <span
+                        key={item.title}
                         className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
-                      >
-                        {item.title}
-                      </Link>
-                    </SheetClose>
-                  ))}
+                      ></span>
+                    ),
+                  )}
                 </nav>
+ <ModeToggle />
+
               </SheetContent>
             </Sheet>
           ) : (
             <MainNav items={siteConfig.mainNav} />
           )}
         </div>
+ <ModeToggle />
       </div>
     </header>
   );
