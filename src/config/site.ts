@@ -25,6 +25,10 @@ export const siteConfig = {
       title: "Resume Improver",
       href: "/resume-improver",
     },
+    {
+      title: "Weather",
+      href: "/weather",
+    },
   ],
   links: {
     github: "https://github.com/your-github", // Replace with actual link
