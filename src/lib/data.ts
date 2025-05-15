@@ -1,16 +1,16 @@
 import type { PersonalInfo, Project, WorkExperience, Education } from '@/lib/types';
 
 export const personalInfoData: PersonalInfo = {
-  name: "Your Name",
-  title: "Aspiring Full Stack Developer",
+  name: "Vijay Singh",
+  title: "Frontend Technical Lead",
   imageUrl: "https://placehold.co/200x200.png",
   imageHint: "profile person",
   bio: "Passionate and driven individual seeking opportunities to leverage skills in web development to create innovative solutions. Eager to learn and contribute to impactful projects.",
-  email: "your.email@example.com",
-  phone: "+1 234 567 8900",
-  linkedin: "https://linkedin.com/in/yourusername",
-  github: "https://github.com/yourusername",
-  skills: ["JavaScript", "React", "Next.js", "Node.js", "Tailwind CSS", "Problem Solving"],
+  email: "vijaykumarsingh@outlook.com",
+  phone: "+45 53838038",
+  linkedin: "https://www.linkedin.com/in/vijay-kumar-singh/",
+  github: "https://github.com/vijay-kumar-singh",
+  skills: ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Tailwind CSS", "DevSecOps"],
 };
 
 export const projectsData: Project[] = [

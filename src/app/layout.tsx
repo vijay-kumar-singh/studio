@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Providers } from '@/components/providers';
+import CookieConsent from '@/components/cookie-consent';
 
 
 const openSans = Open_Sans({
@@ -33,6 +34,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <CookieConsent />
           <Toaster />
         </Providers>
       </body>

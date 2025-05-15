@@ -16,10 +16,6 @@ export function PersonalInfoSection({ info }: PersonalInfoSectionProps) {
   return (
     <Card className="max-w-3xl mx-auto shadow-lg">
       <CardHeader className="text-center">
-        <Avatar className="w-32 h-32 mx-auto mb-4 border-4 border-primary shadow-md">
-          <AvatarImage src={info.imageUrl} alt={info.name} data-ai-hint={info.imageHint || "profile person"}/>
-          <AvatarFallback className="text-4xl">{initial}</AvatarFallback>
-        </Avatar>
         <CardTitle className="text-3xl">{info.name}</CardTitle>
         <CardDescription className="text-accent text-lg">{info.title}</CardDescription>
       </CardHeader>

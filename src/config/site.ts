@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Portfolio Pro",
+  name: "Vijay Singh",
   description:
     "Create and showcase your professional portfolio and resume with Portfolio Pro.",
   mainNav: [
@@ -24,10 +24,6 @@ export const siteConfig = {
     {
       title: "Resume Improver",
       href: "/resume-improver",
-    },
-    {
-      title: "Contact Me",
-      href: "/contact",
     },
   ],
   links: {
