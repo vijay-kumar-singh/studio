@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <BriefcaseBusiness className="mx-auto h-16 w-16 text-primary mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
-            Welcome to Portfolio Pro
+            Welcome to Vijay Singh Portfolio
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Craft your professional story. Showcase your projects, build your resume,
