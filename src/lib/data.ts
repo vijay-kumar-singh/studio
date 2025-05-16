@@ -1,4 +1,4 @@
-import type { PersonalInfo, Project, WorkExperience, Education } from '@/lib/types';
+import type { PersonalInfo, Project, WorkExperience, Education, Skill } from '@/lib/types';
 
 export const personalInfoData: PersonalInfo = {
   name: "Vijay Singh",
@@ -48,50 +48,71 @@ export const projectsData: Project[] = [
 export const workExperienceData: WorkExperience[] = [
   {
     id: "1",
-    jobTitle: "Software Engineer Intern",
-    company: "Tech Solutions Inc.",
-    startDate: "June 2023",
-    endDate: "August 2023",
+    jobTitle: "Technical Lead - Frontend & DevOps",
+    company: "Tata Consultancy Services",
+    startDate: "September 2013",
+    endDate: "Current",
     responsibilities: [
-      "Developed and maintained features for a client-facing web application using React and Node.js.",
-      "Collaborated with a team of 5 engineers in an agile development environment.",
+      "Designed and developed Micro Frontend Architecture-based Risk Advisory Portal using React, Next.js, TypeScript, and Web Components.",
+      "Collaborated with a team of 10 engineers in an agile development environment.",
       "Contributed to bug fixing and performance optimization efforts.",
       "Participated in code reviews and provided constructive feedback.",
     ],
   },
   {
     id: "2",
-    jobTitle: "Freelance Web Developer",
-    company: "Self-Employed",
-    startDate: "January 2022",
-    endDate: "May 2023",
+    jobTitle: "Rich Internet Application Consultant",
+    company: "Capgemini",
+    startDate: "July 2011",
+    endDate: "September 2013",
     responsibilities: [
-      "Designed and developed responsive websites for small businesses using WordPress and custom themes.",
+      "Worked as a RIA Consultant and developing Banking and Financial based Web application using Adobe Flex, Java, ActionScript, HTML5, Javascript, EXTJS and Sencha Touch technology.",
       "Managed client communication, project timelines, and deliverables.",
-      "Implemented SEO best practices to improve website visibility.",
     ],
   },
 ];
-
-export const educationData: Education[] = [
+export const skillsData: Skill[] = [
   {
     id: "1",
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of Technology",
-    startDate: "September 2020",
-    endDate: "May 2024",
-    details: [
-      "Relevant Coursework: Data Structures, Algorithms, Web Development, Database Management.",
-      "Dean's List: Fall 2022, Spring 2023.",
-      "Senior Project: Developed a machine learning model for predicting stock prices.",
-    ],
+    name: "HTML5",
+    level: 95,
   },
   {
     id: "2",
-    degree: "Web Development Bootcamp",
-    institution: "Coding Academy",
-    startDate: "June 2021",
-    endDate: "December 2021",
-    details: ["Intensive full-stack web development program focusing on MERN stack.", "Completed multiple hands-on projects."],
+    name: "React",
+    level: 90,
+  },
+  {
+    id: "3",
+    name: "TypeScript",
+    level: 90,
+  },
+  {
+    id: "4",
+    name: "Next.js",
+    level: 80,
+  },
+  {
+    id: "5",
+    name: "Devops",
+    level: 80,
+  },
+  {
+    id: "6",
+    name: "Kubernetes",
+    level: 70,
+  },
+
+];
+export const educationData: Education[] = [
+  {
+    id: "1",
+    degree: "Bachelor of Engineering in Computer Science & Engineering",
+    institution: "Anna University",
+    startDate: "June 2002",
+    endDate: "June 2006",
+    details: [
+      "First class with distinction",
+    ],
   },
 ];

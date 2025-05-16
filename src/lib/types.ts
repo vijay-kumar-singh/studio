@@ -34,6 +34,13 @@ export interface Education {
   details?: string[];
 }
 
+export interface Skill {
+  id:string;
+  name: string;
+  level: number; // Proficiency level from 0 to 100
+}
+
+
 export interface PersonalInfo {
   name: string;
   title: string;
