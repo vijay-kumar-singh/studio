@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${openSans.variable} font-sans antialiased`}>
+      <body className={`${openSans.variable} font-sans antialiased`} suppressHydrationWarning={true}>
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="flex flex-col min-h-screen">
