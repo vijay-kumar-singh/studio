@@ -4,7 +4,7 @@ import { workExperienceData, educationData, skillsData } from '@/lib/data';
 
 export default function ResumePage() {
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container space-y-12 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-8 text-center text-primary">My Resume</h1>
 
       {/* Summary or Objective Statement */}
