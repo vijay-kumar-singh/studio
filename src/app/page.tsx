@@ -34,19 +34,18 @@ export default function HomePage() {
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
           <div className="flex flex-col items-center p-6 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <UserCircle className="h-12 w-12 text-accent mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Personalize Your Profile</h3>
+            <h3 className="text-xl font-semibold mb-2">My Profile</h3>
             <p className="text-muted-foreground text-sm">
-              Share your story, skills, and contact information in one place.
+              My Skills and Experience.
             </p>
             <Button variant="link" asChild className="mt-4 text-accent">
-              <Link href="/personal-info">Learn More <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Link href="/resume">Learn More <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
           <div className="flex flex-col items-center p-6 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <BriefcaseBusiness className="h-12 w-12 text-accent mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Showcase Your Work</h3>
-            <p className="text-muted-foreground text-sm">
-              Display your best projects with images, descriptions, and links.
+            <h3 className="text-xl font-semibold mb-2">My Projects</h3>
+            <p className="text-muted-foreground text-sm">This project developed as per personal interest.
             </p>
             <Button variant="link" asChild className="mt-4 text-accent">
               <Link href="/projects">Explore Projects <ArrowRight className="ml-1 h-4 w-4" /></Link>
@@ -59,7 +58,7 @@ export default function HomePage() {
               Outline your experience and education, then enhance it with AI.
             </p>
             <Button variant="link" asChild className="mt-4 text-accent">
-              <Link href="/resume">Build Resume <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Link href="/resume-improver">Build Resume <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
         </div>
