@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { AlertCircle } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface WeatherData {
   request: {
@@ -17,9 +20,6 @@ interface WeatherData {
     lon: string;
     timezone_id: string;
   };
-  weather: {
-    description: string;
-  }[];
   current: {
     temperature: number;
     weather_descriptions: string[];
@@ -37,18 +37,24 @@ export default function WeatherPage() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          const API_ENDPOINT = `https://api.weatherstack.com/current?access_key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&query=${latitude},${longitude}`; // Replace with your actual API endpoint
-          console.log(latitude, longitude,'test')
+          const API_ENDPOINT = `https://api.weatherstack.com/current?access_key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&query=${latitude},${longitude}`;
+
           try {
-            const response = await fetch(API_ENDPOINT); // Example with metric units
+            const response = await fetch(API_ENDPOINT);
+            const data = await response.json();
+
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const data: WeatherData = await response.json();
-            setWeather(data);
 
+            if (data.error) {
+              setError(data.error.info || "An error occurred while fetching weather data.");
+            } else {
+              setWeather(data);
+            }
           } catch (err) {
-            setError("Failed to fetch weather data.");
+            const message = err instanceof Error ? err.message : "Failed to fetch weather data.";
+            setError(message);
             console.error("Weather API error:", err);
           } finally {
             setLoading(false);
@@ -67,25 +73,50 @@ export default function WeatherPage() {
   }, []);
 
   if (loading) {
-    return <div>Loading weather data...</div>;
+    return (
+      <div className="flex justify-center items-center h-full">
+        <p>Loading weather data...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="text-red-500">Error: {error}</div>;
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error Fetching Weather</AlertTitle>
+          <AlertDescription>
+            {error}
+            <p className="mt-2 text-sm">Please ensure the Weather API key is set correctly in your environment variables and that location services are enabled.</p>
+          </AlertDescription>
+        </Alert>
+      </div>
+    );
   }
 
   if (!weather) {
-    return <div>No weather data available.</div>;
+    return (
+      <div className="flex justify-center items-center h-full">
+        <p>No weather data available.</p>
+      </div>
+    );
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Current Weather in {weather.location.name}</h1>
-      <div className="bg-card p-6 rounded-lg shadow-md">
-        <p className="text-xl">Temperature: {weather.current.temperature}°C</p>
-        <p className="text-lg">Description: {weather.current.weather_descriptions[0]}</p>
-        <p className="text-lg">Wind Speed: {weather.current.wind_speed} km/h</p>
-      </div>
+      <Card className="max-w-md mx-auto shadow-lg">
+        <CardHeader className="text-center">
+          <CardTitle className="text-3xl text-primary">
+            Weather in {weather.location.name}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="text-center space-y-4">
+          <p className="text-6xl font-bold">{weather.current.temperature}°C</p>
+          <p className="text-xl text-muted-foreground">{weather.current.weather_descriptions[0]}</p>
+          <p className="text-lg">Wind Speed: {weather.current.wind_speed} km/h</p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
