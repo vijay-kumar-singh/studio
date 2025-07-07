@@ -13,7 +13,7 @@ export default function HomePage() {
             Welcome to Vijay Singh Portfolio
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Passionate and results-oriented Technical Lead with over 14 years of experience driving software development, managing projects, and crafting high-performance web applications.
+          Passionate and results-oriented Technical Lead with over 10+ years of experience driving software development, managing projects, and crafting high-performance web applications.
           </p>
         </div>
       </section>
