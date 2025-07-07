@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/layout/header';
+import { SiteHeader } from "@/components/layout/header";
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { Providers } from '@/components/providers';
@@ -30,7 +30,7 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="flex flex-col min-h-screen">
-              <Header />
+              <SiteHeader />
               <main className="flex-grow container mx-auto px-4 py-8">
                 {children}
               </main>

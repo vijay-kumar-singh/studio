@@ -15,18 +15,6 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Passionate and results-oriented Technical Lead with over 14 years of experience driving software development, managing projects, and crafting high-performance web applications.
           </p>
-          <div className="space-x-4">
-            <Button asChild size="lg">
-              <Link href="/projects">
-                View Projects <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/resume-improver">
-                Improve Resume <Lightbulb className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -61,19 +49,6 @@ export default function HomePage() {
               <Link href="/resume-improver">Build Resume <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
-        </div>
-      </section>
-      
-      <section className="py-16 md:py-24 text-center">
-        <div className="container mx-auto px-4">
-          <Image 
-            src="https://placehold.co/800x400.png" 
-            alt="Portfolio Pro Showcase" 
-            width={800} 
-            height={400}
-            className="rounded-lg shadow-xl mx-auto"
-            data-ai-hint="portfolio website computer"
-          />
         </div>
       </section>
     </div>

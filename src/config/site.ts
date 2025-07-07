@@ -22,12 +22,12 @@ export const siteConfig = {
       href: "/resume",
     },
     {
-      title: "Resume Improver",
-      href: "/resume-improver",
-    },
-    {
       title: "Weather",
       href: "/weather",
+    },
+    {
+      title: "Blogs",
+      href: "/blogs",
     },
   ],
   links: {
